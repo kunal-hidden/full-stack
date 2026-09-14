@@ -43,7 +43,7 @@ function Counting() {
                 <Row className="g-3 operation-row">
                     <Col xs={12} md={6} lg={3}>
                         <div className="operation-card operation-sum">
-                            <Form.Check
+                            <Form.Check className="radio"
                                 type="radio"
                                 name="operation"
                                 value="sum"
