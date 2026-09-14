@@ -2,7 +2,9 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 
 function Counting() {
-    const [operation, setOperation] = useState("0")
+    const [operation, setOperation] = useState("sum")
+    const [num1, setNum1] = useState(Math.floor(Math.random() * 20) + 1);
+    const [num2, setNum2] = useState(Math.floor(Math.random() * 20) + 1);
     return (
         <Container fluid className="math-practice-page px-0">
             <div className="math-practice-header">
@@ -111,19 +113,27 @@ function Counting() {
 
                 <Row className="align-items-center justify-content-center problem-row g-3">
                     <Col xs="auto">
-                        <div className="number-box">7</div>
+                        <div className="number-box">{num1}</div>
                     </Col>
                     <Col xs="auto">
-                        <div className="number-box blue-box">+</div>
+                        <div className="number-box blue-box">
+                            {operation === "sum" && "+"}
+                            {operation === "subtract" && "-"}
+                            {operation === "divide" && "÷"}
+                            {operation === "multiply" && "×"}
+                        </div>
                     </Col>
                     <Col xs="auto">
-                        <div className="number-box">12</div>
+                        <div className="number-box">{num2}</div>
                     </Col>
                     <Col xs="auto">
                         <div className="number-box blue-box">=</div>
                     </Col>
                     <Col xs="auto">
-                        <div className="answer-box" />
+                        <Form.Control
+                            className="answer-box"
+                            type="number"
+                        />
                     </Col>
                 </Row>
 
