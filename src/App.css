@@ -12,7 +12,6 @@ body {
 }
 
 .math-practice-page {
-  background-color: #dff3f8;
   min-height: 100vh;
   padding-bottom: 32px;
 }
@@ -51,14 +50,37 @@ body {
   transform-origin: center 58px;
 }
 
-.ray-1 { transform: rotate(0deg); }
-.ray-2 { transform: rotate(45deg); }
-.ray-3 { transform: rotate(90deg); }
-.ray-4 { transform: rotate(135deg); }
-.ray-5 { transform: rotate(180deg); }
-.ray-6 { transform: rotate(225deg); }
-.ray-7 { transform: rotate(270deg); }
-.ray-8 { transform: rotate(315deg); }
+.ray-1 {
+  transform: rotate(0deg);
+}
+
+.ray-2 {
+  transform: rotate(45deg);
+}
+
+.ray-3 {
+  transform: rotate(90deg);
+}
+
+.ray-4 {
+  transform: rotate(135deg);
+}
+
+.ray-5 {
+  transform: rotate(180deg);
+}
+
+.ray-6 {
+  transform: rotate(225deg);
+}
+
+.ray-7 {
+  transform: rotate(270deg);
+}
+
+.ray-8 {
+  transform: rotate(315deg);
+}
 
 .sun-face {
   position: absolute;
@@ -74,8 +96,13 @@ body {
   top: 40px;
 }
 
-.eye.left { left: 32px; }
-.eye.right { right: 32px; }
+.eye.left {
+  left: 32px;
+}
+
+.eye.right {
+  right: 32px;
+}
 
 .smile {
   position: absolute;
@@ -146,7 +173,7 @@ body {
   padding: 24px 28px 18px;
   border: 1px solid rgba(23, 116, 178, 0.12);
   max-width: 1200px;
-  margin: 26px auto 28px;
+  margin: 50px;
 }
 
 .section-title {
@@ -247,21 +274,22 @@ body {
   font-weight: 900;
   font-family: "Comic Sans MS", "Marker Felt", cursive;
 }
+
 .answer-box {
-    max-width: 200px;
-   min-height: 120px;
-    border-radius: 18px;
-    text-align: center;
-    background: #cfe9f9;
-    border: 3px solid rgba(78, 150, 208, 0.9);
-    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  max-width: 200px;
+  min-height: 120px;
+  border-radius: 18px;
+  text-align: center;
+  background: #cfe9f9;
+  border: 3px solid rgba(78, 150, 208, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
 
-    color: #0f4f9b !important;
-    font-size: 4rem !important;
-    font-weight: 900 !important;
-    font-family: "Comic Sans MS", "Marker Felt", cursive !important;
+  color: #0f4f9b !important;
+  font-size: 4rem !important;
+  font-weight: 900 !important;
+  font-family: "Comic Sans MS", "Marker Felt", cursive !important;
 
-    padding: 0;
+  padding: 0;
 }
 
 .blue-box {
@@ -278,15 +306,18 @@ body {
 .submit-button-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 12px;
+  flex-direction: column;
+  align-items: center;
 }
 
+
 .submit-button {
-  width: min(100%, 760px);
+ min-width:150px ; 
   background: linear-gradient(180deg, #4b9ae2, #2f7fe1);
   border: none;
   border-radius: 18px;
-  padding: 18px 20px;
+  padding: 10px 20px;
   font-size: clamp(1.5rem, 2vw, 2.5rem);
   font-weight: 700;
   font-family: "Comic Sans MS", "Marker Felt", cursive;
@@ -304,8 +335,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 20px 42px 0;
+  padding: 20px 42px;
   margin-top: 10px;
+  background-color: #dff3f8;
 }
 
 .bottom-note {

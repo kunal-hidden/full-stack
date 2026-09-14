@@ -1,10 +1,46 @@
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Alert } from "react-bootstrap";
 import { useState } from "react";
 
 function Counting() {
-    const [operation, setOperation] = useState("sum")
+    const [operation, setOperation] = useState("sum");
     const [num1, setNum1] = useState(Math.floor(Math.random() * 20) + 1);
     const [num2, setNum2] = useState(Math.floor(Math.random() * 20) + 1);
+    const [answer, setAnswer] = useState("");
+    const [message, setMessage] = useState("");
+    const [showNext, setShowNext] = useState(false);
+
+    const generateRandomNumber = () => Math.floor(Math.random() * 20) + 1;
+
+    const handleNextQuestion = () => {
+        setNum1(generateRandomNumber());
+        setNum2(generateRandomNumber());
+        setAnswer("");
+        setMessage("");
+        setShowNext(false);
+    };
+
+    const handleSubmit = () => {
+        let correctAnswer = 0;
+
+        if (operation === "sum") {
+            correctAnswer = num1 + num2;
+        } else if (operation === "subtract") {
+            correctAnswer = num1 - num2;
+        } else if (operation === "multiply") {
+            correctAnswer = num1 * num2;
+        } else if (operation === "divide") {
+            correctAnswer = num1 / num2;
+        }
+
+        if (Number(answer) === correctAnswer) {
+            setMessage("Correct! You are right");
+            setShowNext(true);
+        } else {
+            setMessage("Your answer is wrong please try Again!");
+            setShowNext(false);
+
+        }
+    };
     return (
         <Container fluid className="math-practice-page px-0">
             <div className="math-practice-header">
@@ -39,13 +75,14 @@ function Counting() {
                 </div>
             </div>
 
-            <Container className="math-card">
+            <div className="math-card">
                 <h2 className="section-title">1. Choose an operation</h2>
 
                 <Row className="g-3 operation-row">
                     <Col xs={12} md={6} lg={3}>
                         <div className="operation-card operation-sum">
-                            <Form.Check className="radio"
+                            <Form.Check
+                                className="radio"
                                 type="radio"
                                 name="operation"
                                 value="sum"
@@ -102,7 +139,7 @@ function Counting() {
                             />
 
                             <div className="operation-text">
-                                <span className="operation-label">Multiple</span>
+                                <span className="operation-label">Multiply</span>
                                 <span className="operation-symbol">(×)</span>
                             </div>
                         </div>
@@ -133,14 +170,37 @@ function Counting() {
                         <Form.Control
                             className="answer-box"
                             type="number"
+                            value={answer}
+                            onChange={(e) => setAnswer(e.target.value)}
                         />
                     </Col>
                 </Row>
 
                 <div className="submit-button-wrap">
-                    <Button className="submit-button">Submit Answer</Button>
+                    <Button
+                        className="submit-button"
+
+                        onClick={handleSubmit}
+                    >
+                        Submit Answer
+                    </Button>
+
+                    {message && (
+                        <Alert
+                            variant={message === "Correct! You are right" ? "success" : "danger"}
+                            className="mt-4"
+                        >
+                            {message}
+                        </Alert>
+                    )}
+
+                    {showNext && (
+                        <Button className="next-button" onClick={handleNextQuestion}>
+                            Next Question
+                        </Button>
+                    )}
                 </div>
-            </Container>
+            </div>
 
             <div className="bottom-banner">
                 <div className="bottom-note small-steps">
