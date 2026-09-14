@@ -1,38 +1,377 @@
-.App {
-  text-align: center;
+body {
+  background-color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+  font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.img {
+  display: flex;
+  justify-content: center;
 }
 
-.App-header {
-  background-color: #282c34;
+.math-practice-page {
+  background-color: #dff3f8;
   min-height: 100vh;
+  padding-bottom: 32px;
+}
+
+.math-practice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 34px 14px;
+  background-color: #dff3f8;
+}
+
+.sun-wrap {
+  width: 140px;
+  display: flex;
+  justify-content: center;
+}
+
+.sun {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f5d65b;
+  box-shadow: 0 0 0 8px rgba(245, 214, 91, 0.15);
+}
+
+.sun-ray {
+  position: absolute;
+  width: 10px;
+  height: 26px;
+  background: #f5d65b;
+  border-radius: 30px;
+  top: -18px;
+  left: 45px;
+  transform-origin: center 58px;
+}
+
+.ray-1 { transform: rotate(0deg); }
+.ray-2 { transform: rotate(45deg); }
+.ray-3 { transform: rotate(90deg); }
+.ray-4 { transform: rotate(135deg); }
+.ray-5 { transform: rotate(180deg); }
+.ray-6 { transform: rotate(225deg); }
+.ray-7 { transform: rotate(270deg); }
+.ray-8 { transform: rotate(315deg); }
+
+.sun-face {
+  position: absolute;
+  inset: 0;
+}
+
+.eye {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #1f2a44;
+  border-radius: 50%;
+  top: 40px;
+}
+
+.eye.left { left: 32px; }
+.eye.right { right: 32px; }
+
+.smile {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  width: 34px;
+  height: 18px;
+  border-bottom: 4px solid #1f2a44;
+  border-radius: 0 0 40px 40px;
+  transform: translateX(-50%);
+}
+
+.math-title-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.math-title {
+  font-size: clamp(2.8rem, 5vw, 6.2rem);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  color: #0f4f9b;
+  text-shadow: 3px 3px 0 rgba(15, 79, 155, 0.12);
+  margin: 0;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.math-subtitle {
+  margin: 8px 0 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.8rem);
+  color: #0f4f9b;
+  font-weight: 700;
+  line-height: 1.3;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+}
+
+.motivation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0f4f9b;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  margin-right: 10px;
+}
+
+.motivation span {
+  display: block;
+}
+
+.heart {
+  color: #e76f87;
+  font-size: 1.9rem;
+  margin-top: 4px;
+}
+
+.math-card {
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 10px 18px rgba(79, 116, 145, 0.12);
+  padding: 24px 28px 18px;
+  border: 1px solid rgba(23, 116, 178, 0.12);
+  max-width: 1200px;
+  margin: 26px auto 28px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  color: #0f4f9b;
+  font-weight: 800;
+  margin-bottom: 22px;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+}
+
+.operation-row {
+  margin-bottom: 28px;
+}
+
+.operation-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 110px;
+  border-radius: 18px;
+  border: 3px solid rgba(70, 145, 205, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+  color: #0f4f9b;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  font-weight: 700;
+  padding: 12px;
+}
+
+.operation-sum {
+  background: #dff0ff;
+}
+
+.operation-subtract {
+  background: #e3f3df;
+}
+
+.operation-divide {
+  background: #fdf0c7;
+}
+
+.operation-multiply {
+  background: #f9dfe6;
+}
+
+.operation-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 4px solid #0f4f9b;
+  background: transparent;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.radio-circle.selected {
+  background: #0f4f9b;
+  box-shadow: inset 0 0 0 5px #fff;
+}
+
+.operation-label,
+.operation-symbol {
+  display: block;
+  line-height: 1.1;
+}
+
+.operation-label {
+  font-size: 1.8rem;
+}
+
+.operation-symbol {
+  font-size: 1.5rem;
+}
+
+.problem-row {
+  margin: 18px 0 26px;
+}
+
+.number-box,
+.answer-box {
+  min-width: 150px;
+  min-height: 120px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #cfe9f9;
+  border: 3px solid rgba(78, 150, 208, 0.9);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  color: #0f4f9b;
+  font-size: clamp(2.8rem, 4vw, 6rem);
+  font-weight: 900;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+}
+
+.blue-box {
+  background: #dfeef9;
+}
+
+.answer-box {
+  background: transparent;
+  border: 6px solid rgba(84, 150, 208, 0.8);
+  width: 210px;
+  min-height: 120px;
+}
+
+.submit-button-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.submit-button {
+  width: min(100%, 760px);
+  background: linear-gradient(180deg, #4b9ae2, #2f7fe1);
+  border: none;
+  border-radius: 18px;
+  padding: 18px 20px;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-weight: 700;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  box-shadow: 0 8px 0 rgba(22, 112, 194, 0.45);
+}
+
+.submit-button:hover,
+.submit-button:focus,
+.submit-button:active {
+  background: linear-gradient(180deg, #4b9ae2, #2f7fe1) !important;
+  border: none !important;
+}
+
+.bottom-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 20px 42px 0;
+  margin-top: 10px;
+}
+
+.bottom-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Comic Sans MS", "Marker Felt", cursive;
+  color: #0f4f9b;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.small-steps {
+  margin-left: 10px;
+}
+
+.keep-learning {
+  margin-right: 10px;
+}
+
+.keep-learning::before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  background: #8bcf7a;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: block;
+  margin-bottom: 8px;
+  box-shadow: 12px 10px 0 #7abf68;
+}
+
+.small-steps::before {
+  content: "★";
+  color: #f6d55d;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 991.98px) {
+  .math-practice-header {
+    flex-direction: column;
+    gap: 18px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .math-title,
+  .motivation {
+    text-align: center;
+  }
+
+  .bottom-banner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .math-card {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .number-box,
+  .answer-box {
+    min-width: 110px;
+    min-height: 90px;
+  }
+
+  .answer-box {
+    width: 170px;
+  }
+
+  .operation-card {
+    min-height: 90px;
+  }
+
+  .operation-label {
+    font-size: 1.4rem;
   }
 }
