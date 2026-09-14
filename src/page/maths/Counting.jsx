@@ -1,8 +1,8 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useState } from "react";
 
-
 function Counting() {
+    const [operation, setOperation] = useState("0")
     return (
         <Container fluid className="math-practice-page px-0">
             <div className="math-practice-header">
@@ -42,8 +42,15 @@ function Counting() {
 
                 <Row className="g-3 operation-row">
                     <Col xs={12} md={6} lg={3}>
-                        <div className="operation-card operation-sum selected">      
-                     <span className="radio-circle selected"  />
+                        <div className="operation-card operation-sum">
+                            <Form.Check
+                                type="radio"
+                                name="operation"
+                                value="sum"
+                                checked={operation === "sum"}
+                                onChange={(e) => setOperation(e.target.value)}
+                            />
+
                             <div className="operation-text">
                                 <span className="operation-label">Sum</span>
                                 <span className="operation-symbol">(+)</span>
@@ -52,7 +59,14 @@ function Counting() {
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <div className="operation-card operation-subtract">
-                            <span className="radio-circle"  />
+                            <Form.Check
+                                type="radio"
+                                name="operation"
+                                value="subtract"
+                                checked={operation === "subtract"}
+                                onChange={(e) => setOperation(e.target.value)}
+                            />
+
                             <div className="operation-text">
                                 <span className="operation-label">Subtract</span>
                                 <span className="operation-symbol">(-)</span>
@@ -61,17 +75,30 @@ function Counting() {
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <div className="operation-card operation-divide">
-                            <span className="radio-circle" />
+                            <Form.Check
+                                type="radio"
+                                name="operation"
+                                value="divide"
+                                checked={operation === "divide"}
+                                onChange={(e) => setOperation(e.target.value)}
+                            />
+
                             <div className="operation-text">
                                 <span className="operation-label">Divide</span>
                                 <span className="operation-symbol">(÷)</span>
-                                
                             </div>
                         </div>
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <div className="operation-card operation-multiply">
-                            <span className="radio-circle" />
+                            <Form.Check
+                                type="radio"
+                                name="operation"
+                                value="multiply"
+                                checked={operation === "multiply"}
+                                onChange={(e) => setOperation(e.target.value)}
+                            />
+
                             <div className="operation-text">
                                 <span className="operation-label">Multiple</span>
                                 <span className="operation-symbol">(×)</span>
